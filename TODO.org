@@ -1,0 +1,11 @@
+* DONE shortcut for easy select area
+  CLOSED: [2010-08-09 一 21:16]
+* DONE save config
+  CLOSED: [2010-08-09 一 21:56]
+* logo
+* about
+* debian pkg
+* bug
+** not size to the right place
+* windows port
+* mac port
