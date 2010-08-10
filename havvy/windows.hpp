@@ -5,7 +5,16 @@
 #ifndef __WINDOWS_HPP__
 #define __WINDOWS_HPP__
 
-int window_change(Window wid, int x, int y, int w, int h);
+#ifndef _AFXDLL
+#define _AFXDLL
+#endif
+
+//#include <windows.h>
+#include <afxwin.h>
+
+typedef HWND WId;
+
+int window_change(WId wid, int x, int y, int w, int h);
 
 #endif
 

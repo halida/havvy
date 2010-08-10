@@ -7,10 +7,20 @@ TARGET =
 DEPENDPATH += .
 INCLUDEPATH += .
 
-CONFIG += qxt
+CONFIG += qxt release
 QXT += core gui
 
+win32{
+HEADERS += windows.hpp
+SOURCES += windows.cpp
+}
+
+unix{
+HEADERS += x11.hpp
+SOURCES += x11.cpp
+}
+
 # Input
-HEADERS += configer.hpp lib.hpp main_view.hpp selector.hpp tray.hpp x11.hpp about.hpp
+HEADERS += configer.hpp lib.hpp main_view.hpp selector.hpp tray.hpp about.hpp
 FORMS += configer.ui about.ui
-SOURCES += configer.cpp lib.cpp main.cpp main_view.cpp selector.cpp tray.cpp x11.cpp about.cpp
+SOURCES += configer.cpp lib.cpp main.cpp main_view.cpp selector.cpp tray.cpp about.cpp

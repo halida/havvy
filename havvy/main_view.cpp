@@ -5,8 +5,15 @@
 #include "main_view.hpp"
 
 #include <QxtWindowSystem>
-#include "x11.hpp"
 #include "about.hpp"
+
+#ifdef Q_WS_X11
+#include "x11.hpp"
+#endif
+
+#ifdef Q_WS_WIN
+#include "windows.hpp"
+#endif
 
 const QString TITLE = "havvy";
 
@@ -100,14 +107,12 @@ void MainView::onSelect(QRect r)
     hide();
 
     WId id = QxtWindowSystem::activeWindow();
-    msg = QString::number(id);
-    debug(msg);
     if (id <= 0) return;
 
     QString title = QxtWindowSystem::windowTitle(id);
 
-    msg = QString("window_id: %1, window_title: %2").arg(id).arg(title);
-    debug(msg);
+    //msg = QString("window_id: %1, window_title: %2").arg(id).arg(title);
+    //debug(msg);
 
     //not size desktop!
     if (title == "x-nautilus-desktop") return;

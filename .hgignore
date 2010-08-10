@@ -1,0 +1,11 @@
+syntax: glob
+
+*~
+*.o
+.#*
+*Makefile*
+
+syntax: regexp
+havvy/havvy
+havvy/release/*
+havvy/debug/*
