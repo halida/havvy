@@ -5,7 +5,7 @@
 #include "tray.hpp"
 
 Tray::Tray()
-    :QSystemTrayIcon(QIcon("icon.ico"))     
+    :QSystemTrayIcon(QIcon("logo.ico"))     
 {
     connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), 
 	    this, SLOT(processEvent(QSystemTrayIcon::ActivationReason)));
