@@ -125,5 +125,5 @@ void MainView::onSelect(QRect r)
 void MainView::about(){
     debug("about");
     AboutDialog dlg;
-    dlg.exec();
+    int result = dlg.exec();
 }

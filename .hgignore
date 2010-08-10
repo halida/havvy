@@ -4,6 +4,8 @@ syntax: glob
 *.o
 .#*
 *Makefile*
+moc_*
+ui_*
 
 syntax: regexp
 havvy/havvy

@@ -7,6 +7,7 @@
 
 int main(int argc,char ** argv){
     QApplication app(argc, argv);
+    app.setQuitOnLastWindowClosed(false);
     MainView mv(app);
     mv.show();
     app.exec();
