@@ -7,7 +7,7 @@ TARGET =
 DEPENDPATH += .
 INCLUDEPATH += .
 
-CONFIG += qxt release
+CONFIG += qxt 
 QXT += core gui
 
 win32{

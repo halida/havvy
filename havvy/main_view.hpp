@@ -12,11 +12,13 @@
 
 #include <QxtGlobalShortcut>
 
-class MainView : public QTabWidget {
+class MainView : public QWidget {
 Q_OBJECT
 
 private:
     Tray tray;
+    QTabWidget tab;
+    QHBoxLayout l;
     Selector selector;
     Configer configer;
     QAction *quitAction;
@@ -26,7 +28,6 @@ private:
 
     void keyPressEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *event);
-    void cmd(QString cmd);
     
 public:
     MainView(QApplication &app);

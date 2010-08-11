@@ -22,7 +22,7 @@ private:
     int w,h;
 
     static const int wc = 8;
-    static const int hc = 9;
+    static const int hc = 6;
     static const int margin = 3;
     static const int zoom = 3;
     static const int out_margin = 10;

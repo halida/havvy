@@ -6,18 +6,6 @@
 
 #include <cstdlib>
 
-void debug(QString &msg)
-{
-    std::cout << msg.toStdString();
-    std::cout << std::endl;
-}
-
-void debug(const char *msg)
-{
-    printf(msg);
-    printf("\n");
-}
-
 QString getoutput(QString s)
 {
     QString tmpFile = "t";

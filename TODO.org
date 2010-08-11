@@ -2,10 +2,13 @@
   CLOSED: [2010-08-09 一 21:16]
 * DONE save config
   CLOSED: [2010-08-09 一 21:56]
-* logo
-* about
+* DONE logo
+  CLOSED: [2010-08-10 二 22:24]
+* DONE about
+  CLOSED: [2010-08-10 二 22:24]
 * debian pkg
 * bug
 ** not size to the right place
-* windows port
+* DONE windows port
+  CLOSED: [2010-08-10 二 22:24]
 * mac port

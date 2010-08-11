@@ -12,11 +12,7 @@
 // {
 //     std::cout << msg << endl;
 // };
-
-void debug(QString &msg);
-void debug(const char *msg);
-
-QString getoutput(QString s);
+//QString getoutput(QString s);
 
 #endif
 

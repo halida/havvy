@@ -13,15 +13,12 @@ Selector::Selector(QWidget *p)
      drect(QApplication::desktop()->screenGeometry()),
      p1(-1,-1),
      p2(-1,-1),
-     w(drect.width() / wc / zoom),
-     h(drect.height() / hc / zoom)
+     w((drect.width() / wc) / zoom),
+     h((drect.height() / hc) / zoom)
 {
     setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
     
-    QString msg = QString("caculate grid: %1, %2, %3, %4") \
-	.arg(w) .arg(h)					   \
-	.arg(drect.width()) .arg(drect.height());
-    debug(msg);
+    qDebug("caculate grid: %1, %2, %3, %4", w, h, drect.width(), drect.height());
 }
 
 QSize Selector::sizeHint() const

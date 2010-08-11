@@ -27,7 +27,7 @@ Configer::Configer(QWidget *parent)
 }
 
 Configer::~Configer(){
-    debug("save settings");
+    qDebug("save settings");
     settings.setValue("globalshortcuts", ui.leGlobalShortcut->text());
     settings.setValue("shortcut/size", shortcuts.size());
     for (int i=0; i< shortcuts.size(); i++){
@@ -71,7 +71,7 @@ void Configer::keyPressEvent(QKeyEvent *e)
     Qt::KeyboardModifiers mod = QApplication::keyboardModifiers();
     QKeySequence keySeq (e->key() + mod);
     key = keySeq.toString();
-    debug(key);
+    qDebug()<<key;
 
     if (ui.leGlobalShortcut == focusWidget())
 	{

@@ -18,9 +18,13 @@
 const QString TITLE = "havvy";
 
 MainView::MainView(QApplication &app)
+    :QWidget(0, Qt::Dialog | Qt::WindowStaysOnTopHint)
 {
-    addTab(&selector, "&select");
-    addTab(&configer, "&config");
+    l.addWidget(&tab);
+    setLayout(&l);
+
+    tab.addTab(&selector, "&select");
+    tab.addTab(&configer, "&config");
 
     connect(&selector, SIGNAL(onSelected(QRect)),
 	    this, SLOT(onSelect(QRect)));
@@ -59,9 +63,10 @@ void MainView::appear()
     //move to the middle of desktop
     move(selector.drect.width()/2 - size().width()/2,
 	 selector.drect.height()/2 - size().height()/2);
-    setCurrentIndex(0);
+    tab.setCurrentIndex(0);
     show();
     raise();
+    setFocus();
 }
  
 void MainView::keyPressEvent(QKeyEvent *event)
@@ -87,13 +92,6 @@ void MainView::closeEvent(QCloseEvent *event)
 	}
 }
 
-void MainView::cmd(QString cmd)
-{
-    debug("on cmd:");
-    debug(cmd);
-    getoutput(cmd);
-}
-
 void MainView::onSelect(QRect r)
 {
     int x = r.x();
@@ -101,29 +99,28 @@ void MainView::onSelect(QRect r)
     int w = r.width();
     int h = r.height();
 
-    QString msg = QString("selecting: %1,%2,%3,%4") \
-	.arg(x) .arg(y) .arg(w) .arg(h);
-    debug(msg);
+    qDebug("selecting: %d, %d, %d, %d", x, y, w, h);
     hide();
 
     WId id = QxtWindowSystem::activeWindow();
-    if (id <= 0) return;
-
+    if (id <= 1) {
+	//wrong id..
+	qDebug("wrong id: %d", static_cast<int>(id));
+	return;
+    }
     QString title = QxtWindowSystem::windowTitle(id);
 
-    //msg = QString("window_id: %1, window_title: %2").arg(id).arg(title);
-    //debug(msg);
+    qDebug() << "window_id:" << id << ", window_title: " << title;
 
     //not size desktop!
     if (title == "x-nautilus-desktop") return;
 
-    msg = QString("move to: %1, %2, size as: %3, %4").arg(x).arg(y).arg(w).arg(h);
-    debug(msg);
+    qDebug("move to: %d, %d, size as: %d, %d", x, y, w, h);
     window_change(id, x, y, w, h);
 }
 
 void MainView::about(){
-    debug("about");
+    qDebug("about");
     AboutDialog dlg;
-    int result = dlg.exec();
+    dlg.exec();
 }
